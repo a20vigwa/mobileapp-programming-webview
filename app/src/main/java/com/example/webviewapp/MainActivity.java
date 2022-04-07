@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showInternalWebPage(){
-        myWebView.loadUrl("file:///android_asset/index.html");
+        myWebView.loadUrl("file:///android_asset/test.html");
     }
 
 
@@ -35,9 +35,12 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         WebViewClient client = new WebViewClient();
-        myWebView.setWebViewClient(client);
+       // myWebView.setWebViewClient(client);
         myWebView = findViewById(R.id.my_webview);
         myWebView.getSettings().setJavaScriptEnabled(true);
+
+        myWebView.loadUrl("file:///android_asset/test.html");
+
 
 
         /*
