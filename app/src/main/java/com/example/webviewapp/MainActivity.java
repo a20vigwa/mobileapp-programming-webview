@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -15,12 +16,14 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
+    private WebView myWebView;
+
     public void showExternalWebPage(){
-        // TODO: Add your code for showing external web page here
+        myWebView.loadUrl("https://www.his.se/");
     }
 
     public void showInternalWebPage(){
-        // TODO: Add your code for showing internal web page here
+        myWebView.loadUrl("file:///android_asset/index.html");
     }
 
 
@@ -31,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        WebView myWebView = new WebView(this);
-        setContentView(myWebView);
-        myWebView.loadUrl("https://www.google.com/");
-
+        WebViewClient client = new WebViewClient();
+        myWebView.setWebViewClient(client);
+        myWebView = findViewById(R.id.my_webview);
+        myWebView.getSettings().setJavaScriptEnabled(true);
 
 
         /*
